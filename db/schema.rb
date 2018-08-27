@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_24_154140) do
+ActiveRecord::Schema.define(version: 2018_08_26_084431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "body", null: false
+    t.bigint "author_id"
+    t.datetime "published_at", default: "2018-08-27 08:00:58"
+    t.index ["author_id"], name: "index_posts_on_author_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "nickname", null: false
@@ -22,4 +30,5 @@ ActiveRecord::Schema.define(version: 2018_08_24_154140) do
     t.index ["email"], name: "index_users_on_email"
   end
 
+  add_foreign_key "posts", "users", column: "author_id"
 end
