@@ -18,6 +18,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'jwt', '~> 2.1'
 
+gem 'active_model_serializers'
+gem 'responders'
+
+gem 'faker'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -41,6 +45,7 @@ group :test do
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
+  gem 'json_spec'
 end
 
 group :development do

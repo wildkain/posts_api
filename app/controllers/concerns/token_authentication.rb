@@ -1,11 +1,11 @@
-class NotAuthorizedException < StandardError; end
+
 module TokenAuthentication
   extend ActiveSupport::Concern
-
+  class NotAuthorizedException < StandardError; end
   included do
     attr_reader :current_user
 
-    #before_action :authenticate_user
+    before_action :authenticate_user
 
     rescue_from NotAuthorizedException, with: -> { render json: { error: 'Not Authorized' }, status: 401 }
   end
