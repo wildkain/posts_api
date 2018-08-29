@@ -4,10 +4,13 @@ module Api
       respond_to :json
 
       def index
-        @posts = Post.order(published_at: :desc)
-        response.headers["page"] = 2
-        response.headers["posts_count"]  = @posts.count
-        respond_with @posts
+        if (params[:page] && params[:per_page]) && params[:per_page].to_i > 0
+          @posts = Post.order(published_at: :desc).paginate(page: params[:page], per_page: params[:per_page])
+          prepare_headers
+        else
+          @posts = Post.order(published_at: :desc)
+        end
+        render json: @posts
       end
 
       def show
@@ -26,6 +29,10 @@ module Api
         params.require(:post).permit(:title, :body, :published_at)
       end
 
+      def prepare_headers
+        response.headers["total_pages"] = Post.count / params[:per_page].to_i
+        response.headers["total_posts"] = Post.count
+      end
     end
   end
 end
