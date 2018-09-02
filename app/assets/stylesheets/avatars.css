@@ -1,0 +1,19 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+.avatar-out {
+    text-align: center;
+}
+
+.avatar-panel {
+    display: inline-block;
+    width: 300px;
+}
+
+.avatar-bg {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 10px;
+}

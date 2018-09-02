@@ -1,4 +1,3 @@
-
 module TokenAuthentication
   extend ActiveSupport::Concern
   class NotAuthorizedException < StandardError; end
