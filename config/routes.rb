@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resource :auth, only: %i[create]
       resources :posts
+      post 'reports/by_author', to: 'reports#by_author'
     end
   end
 end
