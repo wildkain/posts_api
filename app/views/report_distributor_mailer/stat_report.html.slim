@@ -1,0 +1,15 @@
+h1 Stat report: Post and Comments between
+table
+  thead
+    tr
+      th.left Nickname
+      th.left Email
+      th Posts count
+      th Comments count
+  tbody
+    - @report.each do |item|
+      tr
+        td.left = item[0]
+        td.left = item[1]
+        td.center = item[2]
+        td.center = item[3]
