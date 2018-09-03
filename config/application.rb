@@ -44,5 +44,14 @@ module PostsApi
                        controller_specs: true
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
+    config.action_mailer.smtp_settings = {
+        :user_name => Rails.application.credentials.sendgrid[:username],
+        :password => Rails.application.credentials.sendgrid[:password],
+        :domain => 'yourdomain.com',
+        :address => 'smtp.sendgrid.net',
+        :port => 587,
+        :authentication => :plain,
+        :enable_starttls_auto => true
+    }
   end
 end
