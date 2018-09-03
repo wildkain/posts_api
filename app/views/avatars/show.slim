@@ -1,7 +1,23 @@
-- if @current_user.avatar?
-  = image_tag @current_user.avatar.thumb.url
-= form_for @current_user, url: avatar_path, method: :post, html: { multipart: true } do |f|
-  .form-group
-    = f.file_field :avatar, class: 'btn btn-default'
-    = f.hidden_field :avatar_cache
-    = f.submit 'Save Avatar', class: 'btn btn-primary'
+.row.justify-content-center
+  .col-md-6
+    .content
+      .card.bg-default.text-center.mt-5
+        .h5.card-header AVATAR
+        .card-body
+          - if @current_user.avatar?
+            = image_tag @current_user.avatar.thumb.url
+          - else
+            = image_tag("/assets/avatar.png")
+        .card-footer
+
+          = form_for @current_user, url: avatar_path, method: :post, html: {multipart: true} do |f|
+            .form-group
+              = f.label :avatar, "Upload NEW AVATAR:"
+              = f.file_field :avatar, class: 'btn btn-default'
+              = f.hidden_field :avatar_cache
+            .form-group
+              = f.submit 'Save', class: 'btn btn-primary'
+
+
+
+
