@@ -1,6 +1,6 @@
 module Api
   module V1
-    class AuthsController < ApplicationController
+    class AuthsController < ApiApplicationController
       skip_before_action :authenticate_user
 
       def create

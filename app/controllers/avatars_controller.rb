@@ -1,4 +1,4 @@
-class AvatarsController < BaseController
+class AvatarsController < ApplicationController
 respond_to :html
   before_action :authenticate_user
   attr_reader :current_user
@@ -22,7 +22,7 @@ respond_to :html
     session["Authorization"] = params[:token] unless session["Authorization"]
     @current_user =  DecodeAuthenticationCommand.call(session).result
 
-    render text: "#{@current_user.nickname}"
+   raise NotAuthorizedException unless @current_user
   end
 
   def user_params

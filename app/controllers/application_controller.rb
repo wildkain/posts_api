@@ -1,4 +1,3 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base
   include TokenAuthentication
-  respond_to :json
 end
