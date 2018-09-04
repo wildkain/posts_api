@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_09_02_104508) do
     t.string "body", null: false
     t.bigint "author_id"
     t.bigint "post_id"
-    t.datetime "published_at", default: "2018-08-29 11:01:07"
+    t.datetime "published_at"
     t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2018_09_02_104508) do
     t.string "title", null: false
     t.string "body", null: false
     t.bigint "author_id"
-    t.datetime "published_at", default: "2018-08-27 08:00:58"
+    t.datetime "published_at"
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 

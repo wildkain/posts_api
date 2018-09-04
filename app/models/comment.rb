@@ -1,13 +1,7 @@
 class Comment < ApplicationRecord
-  belongs_to :author, class_name: "User", foreign_key: "author_id"
+  include PublishedAble
+  include AuthorAble
   belongs_to :post, dependent: :destroy
-  scope :by_published_at, ->(start_date, end_date) {
-    where(published_at: start_date..end_date)
-  }
-
-  scope :group_by_author, ->{
-    joins(:author).group('users.nickname','users.email')
-  }
 
   validates_presence_of :body
 

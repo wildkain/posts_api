@@ -30,8 +30,8 @@ module Api
       end
 
       def prepare_headers
-        response.headers["total_pages"] = Post.count / params[:per_page].to_i
-        response.headers["total_posts"] = Post.count
+        response.headers['total_pages'] = Post.count / params[:per_page].to_i
+        response.headers['total_posts'] = Post.count
       end
     end
   end

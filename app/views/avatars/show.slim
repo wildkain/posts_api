@@ -11,6 +11,9 @@
         .card-footer
 
           = form_for @current_user, url: avatar_path, method: :post, html: {multipart: true} do |f|
+            - flash.each do |name, message|
+              div class="alert alert-#{name}" role="alert"
+                = message
             .form-group
               = f.label :avatar, "Upload NEW AVATAR:"
               = f.file_field :avatar, class: 'btn btn-default'

@@ -26,9 +26,9 @@ class ReportGenerate
 
   def unite(posts, comments)
     result = {}
-    posts.each { |key,value| result[key] = [value, 0] }
+    posts.each { |key, value| result[key] = [value, 0] }
 
-    comments.each do |key,value|
+    comments.each do |key, value|
       if result.key?(key)
         result[key][1] = value
       else
@@ -41,13 +41,13 @@ class ReportGenerate
 
   def items_to_array(items)
     result = []
-    items.each { |key,value| result << items.assoc(key).flatten }
+    items.each { |key, _value| result << items.assoc(key).flatten }
     result
   end
 
   def sort_items(items)
-    items.sort do |a,b|
-      (a[2] + a[3]/10.0) <=> (b[2] + b[3]/10.0)
+    items.sort do |a, b|
+      (a[2] + a[3] / 10.0) <=> (b[2] + b[3] / 10.0)
     end
   end
 end

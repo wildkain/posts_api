@@ -2,15 +2,15 @@ require 'rails_helper'
 
 
 describe  "Posts API" do
-  let (:user) { create :user }
-  let! (:access_token) {  JwtService.encode( { user_id: user.id, exp: 24.hours.from_now.to_i} ) }
+  let(:user) { create :user }
+  let!(:access_token) {  JwtService.encode( { user_id: user.id, exp: 24.hours.from_now.to_i} ) }
 
   describe "GET index /api/v1/posts" do
    it_behaves_like "API Authenticable"
 
     context 'authorized' do
-      let (:user) { create :user }
-      let! (:access_token) {  JwtService.encode( { user_id: user.id, exp: 24.hours.from_now.to_i} ) }
+      let(:user) { create :user }
+      let!(:access_token) {  JwtService.encode( { user_id: user.id, exp: 24.hours.from_now.to_i} ) }
       let!(:posts) { create_list(:post, 5, author: user)}
       let!(:post) { posts.first }
 

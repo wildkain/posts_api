@@ -8,6 +8,7 @@
 require 'faker'
 
 #Users
+User.create(nickname: "volt", email: "volt@volt.com", password: "password123")
 3.times do
   User.create(
           nickname: Faker::Name.unique.name,
@@ -22,7 +23,7 @@ end
   Post.create(
           title: Faker::Lorem.sentence(10),
           body:  Faker::Lorem.sentence(100),
-          author_id: rand(1..3),
+          author_id: rand(1..4),
           published_at: rand(1.month.ago..Time.now)
   )
 end

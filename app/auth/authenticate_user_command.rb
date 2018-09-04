@@ -13,7 +13,7 @@ class AuthenticateUserCommand < BaseCommand
   end
 
   def password_valid?
-    user && user.authenticate(password)
+    user&.authenticate(password)
   end
 
   def payload
@@ -26,8 +26,8 @@ class AuthenticateUserCommand < BaseCommand
 
   def contents
     {
-        user_id: user.id,
-        exp: 24.hours.from_now.to_i
+      user_id: user.id,
+      exp: 24.hours.from_now.to_i
     }
   end
 end

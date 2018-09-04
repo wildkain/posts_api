@@ -26,6 +26,7 @@ gem 'faker'
 
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave'
+gem 'file_validators'
 # A ruby wrapper for ImageMagick or GraphicsMagick command line.
 gem 'mini_magick'
 gem 'fog-aws'

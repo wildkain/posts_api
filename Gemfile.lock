@@ -91,6 +91,9 @@ GEM
     faker (1.9.1)
       i18n (>= 0.7)
     ffi (1.9.25)
+    file_validators (2.3.0)
+      activemodel (>= 3.2)
+      mime-types (>= 1.0)
     fog-aws (3.0.0)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
@@ -276,6 +279,7 @@ DEPENDENCIES
   carrierwave
   factory_bot_rails
   faker
+  file_validators
   fog-aws
   jquery-rails
   json_spec
