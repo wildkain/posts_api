@@ -71,7 +71,7 @@ describe  "Posts API" do
     context 'authorized' do
       let!(:user) { create :user }
       let! (:access_token) {  JwtService.encode( { user_id: user.id, exp: 24.hours.from_now.to_i} ) }
-      let(:params) {{ post: attributes_for(:post, author: user) }}
+      let(:params) {{ title: "New post", body: "New body" }}
 
 
        it 'creates new post' do
@@ -81,7 +81,7 @@ describe  "Posts API" do
         %w[title body].each do |attr|
           it "response object contains #{attr}" do
             do_request(params, {"Authorization" =>"Bearer #{access_token}"})
-            expect(response.body).to be_json_eql(params[:post][attr.to_sym].to_json).at_path("#{attr}")
+            expect(response.body).to be_json_eql(params[attr.to_sym].to_json).at_path("#{attr}")
           end
         end
 

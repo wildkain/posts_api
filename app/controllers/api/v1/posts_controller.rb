@@ -26,7 +26,7 @@ module Api
       private
 
       def post_params
-        params.require(:post).permit(:title, :body, :published_at)
+        params.permit(:title, :body, :published_at)
       end
 
       def prepare_headers
