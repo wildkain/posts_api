@@ -3,47 +3,29 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.2'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+#Main
 gem 'rails', '~> 5.2.1'
-# Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
 gem 'puma', '~> 3.11'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-
-gem 'jwt', '~> 2.1'
-
+gem 'simple_command'
 gem 'active_model_serializers'
 gem 'responders'
-
 gem 'faker'
 
+#Secure
+gem 'bcrypt', '~> 3.1.7'
+gem 'jwt', '~> 2.1'
 
-# Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
+#Uploads
 gem 'carrierwave'
 gem 'file_validators'
-# A ruby wrapper for ImageMagick or GraphicsMagick command line.
 gem 'mini_magick'
 gem 'fog-aws'
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
-gem 'simple_command'
-
-
+#UI
 gem 'will_paginate'
 gem 'pager_api'
 gem 'slim'

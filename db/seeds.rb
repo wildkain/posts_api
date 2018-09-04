@@ -26,5 +26,17 @@ end
           author_id: rand(1..4),
           published_at: rand(1.month.ago..Time.now)
   )
+
 end
+
+#Comments
+10.times do
+  Comment.create(
+             body: Faker::Lorem.sentence(10),
+             author_id: rand(1..4),
+             post_id: rand(1..4),
+             published_at: rand(1.month.ago..Time.now)
+  )
+end
+
 
