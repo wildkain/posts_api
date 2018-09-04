@@ -91,4 +91,5 @@
  
     Загрузить аватар для пользователя можно по адресу:
         "/avatar"?token="полученный через API токен"
-        
+    
+ Example: volt-posts-api.herokuapp.com
